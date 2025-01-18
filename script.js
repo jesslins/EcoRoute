@@ -1,3 +1,20 @@
+const routes = [
+    {"from": "JFK", "to": "LAX", "co2": 500},
+    {"from": "JFK", "to": "ORD", "co2": 200},
+    {"from": "ORD", "to": "LAX", "co2": 300},
+    {"from": "JFK", "to": "ATL", "co2": 250},
+    {"from": "ATL", "to": "LAX", "co2": 400},
+    {"from": "ATL", "to": "DFW", "co2": 150},
+    {"from": "DFW", "to": "LAX", "co2": 200},
+    {"from": "ORD", "to": "DFW", "co2": 180},
+    {"from": "DFW", "to": "SFO", "co2": 250},
+    {"from": "SFO", "to": "LAX", "co2": 100},
+    {"from": "JFK", "to": "SFO", "co2": 550},
+    {"from": "SFO", "to": "SEA", "co2": 120},
+    {"from": "SEA", "to": "LAX", "co2": 200}
+];
+
+
 // Function to build the graph from the routes data
 function buildGraph(routes) {
   const graph = {};
@@ -83,10 +100,17 @@ class MinPriorityQueue {
   }
 }
 function setDropdownOptions(){
+<<<<<<< HEAD
   // all of the airports in the routes
   const airports = [...new Set(window.routes.flatMap(route => [route.from, route.to]))];
   const fromDropdown = document.getElementById('from');
   const toDropdown = document.getElementById('to');
+=======
+    // all of the airports in the routes
+    const airports = [...new Set(routes.flatMap(route => [route.from, route.to]))];
+    const fromDropdown = document.getElementById('from');
+    const toDropdown = document.getElementById('to');
+>>>>>>> master
 
   airports.forEach(airport => {
     const option = document.createElement('option');
@@ -120,6 +144,7 @@ function onSearch(graph){
 
 // Main function to handle the search
 function main() {
+<<<<<<< HEAD
   const routesData = window.routes;
   setDropdownOptions();
 
@@ -127,6 +152,14 @@ function main() {
   document.getElementById('searchBtn').addEventListener('click', () => {
     onSearch(graph);
   });
+=======
+    setDropdownOptions();
+
+    const graph = buildGraph(routes);
+    document.getElementById('searchBtn').addEventListener('click', () => {
+        onSearch(graph);
+    });
+>>>>>>> master
 }
 
 main();
